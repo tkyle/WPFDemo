@@ -149,6 +149,10 @@
       <Project>{8619c73b-79e1-4bbd-9e7f-64aefcd9e5f7}</Project>
       <Name>WPFDemo.DAL.Mock</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPFDemo.StringResources\WPFDemo.StringResources.csproj">
+      <Project>{4c39089e-daf4-4501-b533-030fe87d82dd}</Project>
+      <Name>WPFDemo.StringResources</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\CSLA-Core.4.7.200\analyzers\c#\Csla.Analyzers.dll" />

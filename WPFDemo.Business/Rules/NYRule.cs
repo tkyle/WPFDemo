@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPFDemo.Business.BusinessObjects;
+using WPFDemo.StringResources;
 
 namespace WPFDemo.Business.Rules
 {
@@ -15,7 +16,7 @@ namespace WPFDemo.Business.Rules
             var target = (EmployeeInformationEdit)context.Target;
 
             if (target.State == "NY" && target.Zip != "10108")
-                context.AddErrorResult("If your state is NY you must have 10108 for the zip. It's the only zip we allow for this demo.");
+                context.AddErrorResult(StringResources.ErrorsMessages.Errors.NYError);
         }
     }
 }

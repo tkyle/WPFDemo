@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDemo.DAL.Mock", "WPFDemo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDemo.Test", "WPFDemo.Test\WPFDemo.Test.csproj", "{994A7D5D-443B-45CF-B107-D73F0B944DD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDemo.StringResources", "WPFDemo.StringResources\WPFDemo.StringResources.csproj", "{4C39089E-DAF4-4501-B533-030FE87D82DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{994A7D5D-443B-45CF-B107-D73F0B944DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{994A7D5D-443B-45CF-B107-D73F0B944DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{994A7D5D-443B-45CF-B107-D73F0B944DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C39089E-DAF4-4501-B533-030FE87D82DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C39089E-DAF4-4501-B533-030FE87D82DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C39089E-DAF4-4501-B533-030FE87D82DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C39089E-DAF4-4501-B533-030FE87D82DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
