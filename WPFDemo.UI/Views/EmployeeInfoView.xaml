@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="WPFDemo.UI.Views.EmployeeInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFDemo.UI.Views"
+             xmlns:csla="clr-namespace:Csla.Xaml;assembly=Csla.Xaml"
+             xmlns:converters="clr-namespace:WPFDemo.UI.Converters"
+             mc:Ignorable="d" Width="545" Height="330">
+    <UserControl.Resources>
+        <converters:BooleanAndConverter x:Key="converters" />
+        <converters:InverseBooleanConverter x:Key="inverseboolean" />
+    </UserControl.Resources>
+    <Canvas Margin="0,0,0,125">
+        <TextBox Text="{Binding Path=Employee.FirstName, Mode=TwoWay}" HorizontalAlignment="Left" Width="150" Canvas.Left="10" Canvas.Top="25" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="First Name" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="50"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Path=Employee.FirstName}" RenderTransformOrigin="10,0.75" Canvas.Left="165" Canvas.Top="25" Background="White" Foreground="White" />
+
+        <TextBox Text="{Binding Path=Employee.LastName, Mode=TwoWay}" HorizontalAlignment="Left" Width="150" Canvas.Left="205" Canvas.Top="25" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="Last Name" HorizontalAlignment="Left" Canvas.Left="205" Canvas.Top="50"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Path=Employee.LastName}" RenderTransformOrigin="10,0.75" Canvas.Left="360" Canvas.Top="25" />
+
+        <TextBox Text="{Binding Employee.Title, Mode=TwoWay}" HorizontalAlignment="Left" Width="150" Canvas.Left="10" Canvas.Top="83" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="Title" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="108"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Employee.Title}" RenderTransformOrigin="10,0.75" Canvas.Left="165" Canvas.Top="83" />
+
+        <TextBox Text="{Binding Employee.Address, Mode=TwoWay}" HorizontalAlignment="Left" Width="150" Canvas.Left="10" Canvas.Top="141" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="Address" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="166"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Employee.Address}" RenderTransformOrigin="10,0.75" Canvas.Left="165" Canvas.Top="141" />
+
+        <TextBox Text="{Binding Employee.City, Mode=TwoWay}" HorizontalAlignment="Left" Width="150" Canvas.Left="7" Canvas.Top="203" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="City" HorizontalAlignment="Left" Canvas.Left="7" Canvas.Top="228"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Employee.City}" RenderTransformOrigin="10,0.75" Canvas.Left="165" Canvas.Top="199" />
+
+        <ComboBox ItemsSource="{Binding States}" DisplayMemberPath="Abbreviation" SelectedValue="{Binding Employee.State}" SelectedValuePath="Abbreviation" Canvas.Left="202" Canvas.Top="199" IsEnabled="{Binding IsEditing}" />
+        <TextBlock Text="State" HorizontalAlignment="Left" Canvas.Left="202" Canvas.Top="228"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Employee.State}" RenderTransformOrigin="10,0.75" Canvas.Left="257" Canvas.Top="199" />
+
+        <TextBox Text="{Binding Employee.Zip, Mode=TwoWay}" HorizontalAlignment="Left" Width="47" Canvas.Left="295" Canvas.Top="203" IsEnabled="{Binding IsEditing}"/>
+        <TextBlock Text="Zip" HorizontalAlignment="Left" Canvas.Left="295" Canvas.Top="228"/>
+        <csla:PropertyStatus Width="20" Height="20" Property="{Binding Employee.Zip}" RenderTransformOrigin="10,0.75" Canvas.Left="350" Canvas.Top="199" />
+
+        <StackPanel Orientation="Horizontal" RenderTransformOrigin="1,10.75" Canvas.Left="15" Canvas.Top="267">
+            <Button x:Name="EnableEditing" Content="Edit" Width="80" Margin="5" IsEnabled="{Binding Path=IsEditing, Converter={StaticResource inverseboolean}}"/>
+            <Button x:Name="SaveChanges" Content="Save" Width="80" Margin="5">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource converters}">
+                        <Binding Path="Employee.IsDirty" />
+                        <Binding Path="Employee.IsValid" />
+                        <Binding Path="IsEditing" />
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <Button x:Name="CancelEditing" Content="Cancel" Width="80" Margin="5" IsEnabled="{Binding Path=IsEditing}"/>
+        </StackPanel>
+
+        <Border BorderThickness="1" BorderBrush="Black" Canvas.Top="10" Canvas.Left="400">
+            <Image Source="/Content/Images/ProfilePicture.png" Height="112" Width="115" />
+        </Border>
+
+        <TextBlock Text="Profile Picture" HorizontalAlignment="Left" Canvas.Left="400" Canvas.Top="123" RenderTransformOrigin="11.471,-2.25"/>
+
+    </Canvas>
+</UserControl>
